@@ -190,16 +190,16 @@ private fun ThemeCircle(
     onClick: () -> Unit
 ) {
     val color = when (preset) {
-        AppThemePreset.NATURE_GREEN -> Color(0xFF00897B)
-        AppThemePreset.OCEAN_BLUE -> Color(0xFF1976D2)
-        AppThemePreset.SUNSET_ORANGE -> Color(0xFFF57C00)
-        AppThemePreset.OLED_BLACK -> Color(0xFF000000)
-        AppThemePreset.LAVENDER -> Color(0xFF7C4DFF)
-        AppThemePreset.BERRY_PINK -> Color(0xFFE91E63)
-        AppThemePreset.FOREST_DARK -> Color(0xFF388E3C)
-        AppThemePreset.SAND_EARTH -> Color(0xFF8D6E63)
-        AppThemePreset.MIDNIGHT_NAVY -> Color(0xFF3F51B5)
-        AppThemePreset.CORAL_HEALTH -> Color(0xFFFF6D3A)
+        AppThemePreset.DEMO -> Color(0xFF1565C0)
+        AppThemePreset.CLASSIC -> Color(0xFF6750A4)
+        AppThemePreset.OCEAN -> Color(0xFF3A608F)
+        AppThemePreset.FOREST -> Color(0xFF4E6352)
+        AppThemePreset.SUNSET -> Color(0xFF7D5800)
+        AppThemePreset.LAVENDER -> Color(0xFF6750A4)
+        AppThemePreset.CORAL -> Color(0xFF904A42)
+        AppThemePreset.SLATE -> Color(0xFF5A5D62)
+        AppThemePreset.BERRY -> Color(0xFF8D4E62)
+        AppThemePreset.AMOLED -> Color(0xFF000000)
     }
 
     Column(

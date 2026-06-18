@@ -14,22 +14,20 @@ import androidx.core.view.WindowCompat
 @Composable
 fun NutritionAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    preset: AppThemePreset = AppThemePreset.NATURE_GREEN,
+    preset: AppThemePreset = AppThemePreset.CLASSIC,
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val effectiveDarkTheme = darkTheme || preset == AppThemePreset.OLED_BLACK
+    val effectiveDarkTheme = darkTheme || preset == AppThemePreset.AMOLED
 
     val colorScheme = when {
-        // 1. Динамическая тема Material You (Android 12+)
-        preset == AppThemePreset.NATURE_GREEN && dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+        preset == AppThemePreset.CLASSIC && dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (effectiveDarkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-        // 2. Выбранный пользователем пресет из 10 доступных
         else -> preset.toColorScheme(effectiveDarkTheme)
     }
-    
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {

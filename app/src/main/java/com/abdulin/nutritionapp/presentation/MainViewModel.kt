@@ -21,8 +21,8 @@ class MainViewModel @Inject constructor(
     val startDestination = _startDestination.asStateFlow()
 
     val currentTheme = tokenManager.themePresetOrdinal
-        .map { ordinal -> AppThemePreset.entries.getOrElse(ordinal) { AppThemePreset.NATURE_GREEN } }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), AppThemePreset.NATURE_GREEN)
+        .map { ordinal -> AppThemePreset.entries.getOrElse(ordinal) { AppThemePreset.CLASSIC } }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), AppThemePreset.CLASSIC)
 
     init {
         checkAuth()
