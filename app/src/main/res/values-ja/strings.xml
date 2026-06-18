@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">栄養 AI</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">ホーム</string>
+    <string name="nav_diary">日記</string>
+    <string name="nav_products">商品</string>
+    <string name="nav_recipes">レシピ</string>
+    <string name="nav_profile">プロフィール</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">あなたについて</string>
+    <string name="onboarding_step_account">アカウント作成</string>
+    <string name="onboarding_step_params">あなたのパラメータ</string>
+    <string name="onboarding_step_activity">ライフスタイル</string>
+    <string name="onboarding_step_goals">あなたの目標</string>
+    <string name="onboarding_step_summary">準備完了！</string>
+
+    <string name="onboarding_name_hint">お名前は何ですか？</string>
+    <string name="onboarding_email_hint">メールアドレス</string>
+    <string name="onboarding_pass_hint">パスワード</string>
+    <string name="onboarding_gender">性別</string>
+    <string name="onboarding_male">男性</string>
+    <string name="onboarding_female">女性</string>
+    <string name="onboarding_height">身長 (cm)</string>
+    <string name="onboarding_weight">現在の体重 (kg)</string>
+    <string name="onboarding_target_weight">目標体重 (kg)</string>
+
+    <string name="onboarding_continue">次へ</string>
+    <string name="onboarding_finish">利用開始</string>
+    <string name="onboarding_back">戻る</string>
+
+    <string name="goal_loss">減量</string>
+    <string name="goal_gain">増量</string>
+    <string name="goal_maintain">現状維持</string>
+    <string name="plan_calculated_ai">AIによる計算プラン</string>
+</resources>

@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">الذكاء الاصطناعي للتغذية</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_diary">المذكرات</string>
+    <string name="nav_products">المنتجات</string>
+    <string name="nav_recipes">الوصفات</string>
+    <string name="nav_profile">الملف الشخصي</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">عنك</string>
+    <string name="onboarding_step_account">إنشاء حساب</string>
+    <string name="onboarding_step_params">معاييرك</string>
+    <string name="onboarding_step_activity">نمط الحياة</string>
+    <string name="onboarding_step_goals">هدفك</string>
+    <string name="onboarding_step_summary">جاهز!</string>
+    <string name="onboarding_name_hint">ما اسمك؟</string>
+    <string name="onboarding_email_hint">البريد الإلكتروني</string>
+    <string name="onboarding_pass_hint">كلمة المرور</string>
+    <string name="onboarding_gender">الجنس</string>
+    <string name="onboarding_male">ذكر</string>
+    <string name="onboarding_female">أنثى</string>
+    <string name="onboarding_height">الطول (سم)</string>
+    <string name="onboarding_weight">الوزن الحالي (كجم)</string>
+    <string name="onboarding_target_weight">الوزن المستهدف (كجم)</string>
+    <string name="onboarding_continue">استمرار</string>
+    <string name="onboarding_finish">ابدأ الاستخدام</string>
+    <string name="onboarding_back">رجوع</string>
+    <string name="onboarding_activity_label">النشاط</string>
+    <string name="onboarding_diet_label">تفضيلات الطعام</string>
+    <string name="onboarding_summary_subtitle">خطتك اليومية الشخصية:</string>
+    <string name="onboarding_kcal_per_day">سعرة حرارية في اليوم</string>
+
+    <string name="goal_loss">فقدان الوزن</string>
+    <string name="goal_gain">زيادة العضلات</string>
+    <string name="goal_maintain">الحفاظ على الوزن</string>
+    <string name="plan_calculated_ai">الخطة محسوبة بواسطة الذكاء الاصطناعي</string>
+
+    <!-- Units -->
+    <string name="unit_g">جم</string>
+    <string name="unit_kg">كجم</string>
+    <string name="unit_kcal">سعرة</string>
+    <string name="unit_ml">مل</string>
+
+    <!-- Home Screen -->
+    <string name="home_today">اليوم</string>
+    <string name="home_calories">السعرات</string>
+    <string name="home_protein">البروتين</string>
+    <string name="home_fat">الدهون</string>
+    <string name="home_carbs">الكربوهيدرات</string>
+    <string name="home_water">الماء</string>
+    <string name="home_weight">الوزن</string>
+    <string name="home_steps">الخطوات</string>
+    <string name="home_activity">النشاط</string>
+    <string name="home_meals">الوجبات</string>
+
+    <!-- Diary & Search -->
+    <string name="diary_title">مذكرات الطعام</string>
+    <string name="diary_add_food">إضافة طعام</string>
+    <string name="diary_no_entries">لا توجد مدخلات بعد</string>
+    <string name="search_products_title">بحث عن منتجات</string>
+    <string name="search_hint">أدخل اسم المنتج…</string>
+
+    <!-- Login -->
+    <string name="login_welcome">مرحباً بعودتك!</string>
+    <string name="login_subtitle">سجل الدخول للمتابعة</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">تحليلات التقدم</string>
+    <string name="analytics_health_index">مؤشر الصحة</string>
+
+    <!-- Profile -->
+    <string name="profile_theme">سمة التطبيق</string>
+    <string name="profile_logout">تسجيل الخروج</string>
+
+    <!-- General -->
+    <string name="loading">جاري التحميل…</string>
+    <string name="error_unknown">حدث خطأ</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="done">تم!</string>
+</resources>

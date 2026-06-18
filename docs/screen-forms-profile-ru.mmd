@@ -1,0 +1,21 @@
+flowchart TD
+    A[Профиль]
+
+    A --> B[План питания]
+    A --> C[Список покупок]
+    A --> D[Редактирование профиля]
+    A --> E[Пищевые предпочтения]
+    A --> F[Настройки]
+    A --> G[Избранное]
+    A --> H[Холодильник]
+
+    B --> I[Карточка рецепта]
+    B --> C
+    B --> J[Поиск рецепта для плана]
+    H --> K[Рецепты из холодильника]
+
+    classDef main fill:#eaf7ea,stroke:#4f8a4f,stroke-width:1px,color:#1f4f1f;
+    classDef support fill:#f8f4e8,stroke:#9a7b35,stroke-width:1px,color:#4d3a16;
+
+    class A main;
+    class B,C,D,E,F,G,H,I,J,K support;

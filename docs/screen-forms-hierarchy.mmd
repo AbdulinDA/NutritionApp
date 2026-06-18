@@ -1,0 +1,66 @@
+flowchart TD
+    A[LoginScreen]
+
+    A -->|Login success| B[MainScreen]
+    A -->|Register| C[OnboardingScreen]
+    C -->|Email verified| A
+
+    B --> D1[Home Tab / HomeScreen]
+    B --> D2[Diary Tab / DiaryScreen]
+    B --> D3[Products Tab / ProductSearchScreen]
+    B --> D4[Recipes Tab / RecipeSearchScreen]
+    B --> D5[Profile Tab / ProfileScreen]
+
+    D1 --> H1[FridgeScreen]
+    D1 --> H2[FavoritesScreen]
+    D1 --> H3[RecipeDetailScreen]
+    D1 --> H4[AnalyticsScreen]
+
+    D2 --> X1[AddFoodScreen]
+    X1 --> X2[ProductSearchScreen]
+    X1 --> X3[RecipeSearch Picker]
+    X2 --> X4[BarcodeScannerScreen]
+    X2 --> X5[FoodRecognitionScreen]
+
+    D3 --> P1[ProductDetailScreen]
+    D3 --> P2[BarcodeScannerScreen]
+    D3 --> P3[FoodRecognitionScreen]
+
+    D4 --> R1[RecipeDetailScreen]
+    D4 --> R2[GeneratePlanScreen]
+
+    D5 --> F1[ShoppingListScreen]
+    D5 --> F2[EditProfileScreen]
+    D5 --> F3[MealPlanScreen]
+    D5 --> F4[FridgeScreen]
+    D5 --> F5[FavoritesScreen]
+    D5 --> F6[FoodPreferencesScreen]
+    D5 --> F7[AppSettingsScreen]
+
+    F2 --> F6
+
+    H1 --> H1A[Recipes From Fridge]
+    F4 --> H1A
+    H1A --> R1
+
+    R2 --> F3
+    F1 --> R2
+
+    F3 --> R1
+    F3 --> F1
+    F3 --> R2
+    F3 --> F3A[Recipe Search Plan Picker]
+    F3A --> F3
+
+    R1 --> X1
+    R1 --> F3
+
+    classDef core fill:#e8f1fb,stroke:#356a9a,stroke-width:1px,color:#16324f;
+    classDef support fill:#f8f4e8,stroke:#9a7b35,stroke-width:1px,color:#4d3a16;
+    classDef tab fill:#eaf7ea,stroke:#4f8a4f,stroke-width:1px,color:#1f4f1f;
+    classDef auth fill:#f8f4e8,stroke:#9a7b35,stroke-width:1px,color:#4d3a16;
+
+    class A,C auth;
+    class B core;
+    class D1,D2,D3,D4,D5 tab;
+    class H1,H2,H3,H4,X1,X2,X3,X4,X5,P1,P2,P3,R1,R2,F1,F2,F3,F4,F5,F6,F7,H1A,F3A support;

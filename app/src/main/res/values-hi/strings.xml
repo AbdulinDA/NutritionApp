@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">न्यूट्रिशन AI</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">होम</string>
+    <string name="nav_diary">डायरी</string>
+    <string name="nav_products">उत्पाद</string>
+    <string name="nav_recipes">व्यंजन</string>
+    <string name="nav_profile">प्रोफ़ाइल</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">आपके बारे में</string>
+    <string name="onboarding_step_account">खाता बनाएँ</string>
+    <string name="onboarding_step_params">आपके मापदंड</string>
+    <string name="onboarding_step_activity">जीवनशैली</string>
+    <string name="onboarding_step_goals">आपका लक्ष्य</string>
+    <string name="onboarding_step_summary">तैयार!</string>
+    <string name="onboarding_name_hint">आपका नाम क्या है?</string>
+    <string name="onboarding_email_hint">ईमेल</string>
+    <string name="onboarding_pass_hint">पासवर्ड</string>
+    <string name="onboarding_gender">लिंग</string>
+    <string name="onboarding_male">पुरुष</string>
+    <string name="onboarding_female">महिला</string>
+    <string name="onboarding_height">ऊंचाई (सेमी)</string>
+    <string name="onboarding_weight">वर्तमान वजन (किलो)</string>
+    <string name="onboarding_target_weight">लक्ष्य वजन (किलो)</string>
+    <string name="onboarding_continue">जारी रखें</string>
+    <string name="onboarding_finish">शुरू करें</string>
+    <string name="onboarding_back">पीछे</string>
+    <string name="onboarding_activity_label">गतिविधि</string>
+    <string name="onboarding_diet_label">भोजन प्राथमिकताएं</string>
+    <string name="onboarding_summary_subtitle">आपकी व्यक्तिगत दैनिक योजना:</string>
+    <string name="onboarding_kcal_per_day">कैलोरी प्रति दिन</string>
+
+    <string name="goal_loss">वजन घटाना</string>
+    <string name="goal_gain">मांसपेशियों का लाभ</string>
+    <string name="goal_maintain">वजन बनाए रखना</string>
+    <string name="plan_calculated_ai">AI द्वारा गणना की गई योजना</string>
+
+    <!-- Units -->
+    <string name="unit_g">ग्राम</string>
+    <string name="unit_kg">किलो</string>
+    <string name="unit_kcal">कैलोरी</string>
+    <string name="unit_ml">मिली</string>
+
+    <!-- Home Screen -->
+    <string name="home_today">आज</string>
+    <string name="home_calories">कैलोरी</string>
+    <string name="home_protein">प्रोटीन</string>
+    <string name="home_fat">वसा</string>
+    <string name="home_carbs">कार्ब्स</string>
+    <string name="home_water">पानी</string>
+    <string name="home_weight">वजन</string>
+    <string name="home_steps">कदम</string>
+    <string name="home_activity">गतिविधि</string>
+    <string name="home_meals">भोजन</string>
+
+    <!-- Profile -->
+    <string name="profile_theme">थीम</string>
+    <string name="profile_logout">लॉग आउट</string>
+
+    <!-- General -->
+    <string name="loading">लोड हो रहा है…</string>
+    <string name="error_unknown">त्रुटि हुई</string>
+    <string name="retry">पुनः प्रयास करें</string>
+    <string name="done">हो गया!</string>
+</resources>

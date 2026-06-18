@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">IA de Nutrição</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Sobre você</string>
+    <string name="onboarding_step_account">Criar conta</string>
+    <string name="onboarding_step_params">Seus parâmetros</string>
+    <string name="onboarding_step_activity">Estilo de vida</string>
+    <string name="onboarding_step_goals">Seu objetivo</string>
+    <string name="onboarding_step_summary">Pronto!</string>
+
+    <string name="onboarding_name_hint">Qual é o seu nome?</string>
+    <string name="onboarding_email_hint">E-mail</string>
+    <string name="onboarding_pass_hint">Senha</string>
+    <string name="onboarding_gender">Gênero</string>
+    <string name="onboarding_male">Masculino</string>
+    <string name="onboarding_female">Feminino</string>
+    <string name="onboarding_height">Altura (cm)</string>
+    <string name="onboarding_weight">Peso atual (kg)</string>
+    <string name="onboarding_target_weight">Peso alvo (kg)</string>
+
+    <string name="onboarding_continue">Continuar</string>
+    <string name="onboarding_finish">Começar a usar</string>
+    <string name="onboarding_back">Voltar</string>
+
+    <string name="goal_loss">Perda de peso</string>
+    <string name="goal_gain">Ganho muscular</string>
+    <string name="goal_maintain">Manutenção de peso</string>
+    <string name="plan_calculated_ai">Plano calculado por IA</string>
+
+    <string name="activity_sedentary">Sedentário</string>
+    <string name="activity_light">Atividade leve</string>
+    <string name="activity_moderate">Atividade moderada</string>
+    <string name="activity_active">Atividade alta</string>
+
+    <string name="diet_classic">Clássico</string>
+    <string name="diet_vegetarian">Vegetariano</string>
+    <string name="diet_keto">Ceto</string>
+</resources>

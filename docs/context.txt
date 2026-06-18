@@ -1,0 +1,236 @@
+продолжай
+
+
+
+пятница 00:48
+
+
+
+
+
+
+Работал на протяжении 4m 20s
+
+
+
+Продолжил по качеству каталога рецептов и довел это до рабочего состояния.
+Что сделал:
+добавил в recipes постоянные поля качества:nutrition_calculation_status
+nutrition_notes
+
+связал их с аудитом рецептов:аудит теперь определяет статус вроде COMPLETE, ESTIMATED, REQUIRES_SIDE_DISH, INCOMPLETE
+и формирует понятное текстовое пояснение, почему так
+
+при создании и обновлении рецепта эти поля теперь автоматически заполняются через аудит
+из публичных подборок и поиска убрал откровенно плохие рецепты:COMPONENT больше не должен лезть в обычный каталог
+рецепты с блокирующими проблемами тоже отсекаются
+SIDE_DISH оставил допустимым, чтобы не потерять нормальные гарниры
+
+обновил SQL-миграцию и deploy README для Ubuntu
+Файлы:
+[Recipe.java](C:/Projects/api/src/main/java/com/rest/api/entity/Recipe.java)
+[RecipeRequestDTO.java](C:/Projects/api/src/main/java/com/rest/api/dto/RecipeRequestDTO.java)
+[RecipeResponseDTO.java](C:/Projects/api/src/main/java/com/rest/api/dto/RecipeResponseDTO.java)
+[RecipeCatalogQualityService.java](C:/Projects/api/src/main/java/com/rest/api/service/RecipeCatalogQualityService.java)
+[RecipeService.java](C:/Projects/api/src/main/java/com/rest/api/service/RecipeService.java)
+[add_recipe_catalog_metadata.sql](C:/Projects/api/scripts/add_recipe_catalog_metadata.sql)
+[README-ubuntu.md](C:/Projects/api/scripts/deploy/README-ubuntu.md)
+Проверил:
+C:\Projects\api -> ./mvnw -DskipTests compile — BUILD SUCCESS
+Следующий сильный шаг: сделать массовую классификацию каталога и экспорт спорных рецептов в удобный отчет, чтобы ты мог быстро почистить базу перед ВКР и перед продом.
+
+README-ubuntu.mdДокумент · MDОткрыть предпросмотрОткрыть в
+
+Изменено 7 файлов+112-1Просмотреть измененияОтменитьПроверить
+
+C:/Projects/api/src/main/java/com/rest/api/entity/Recipe.java+12-0
+C:/Projects/api/src/main/java/com/rest/api/dto/RecipeRequestDTO.java+12-0
+C:/Projects/api/src/main/java/com/rest/api/dto/RecipeResponseDTO.java+12-0
+Показать еще 4 файла
+
+
+
+пятница 00:52
+
+
+
+
+
+
+продолжай
+
+
+
+пятница 00:53
+
+
+
+
+
+
+Работал на протяжении 2m 28s
+
+
+
+Продолжил и добавил уже совсем практичный инструмент для сервера: один скрипт, который прогоняет каталог рецептов целиком.
+Сделал:
+новый скрипт [recipe-catalog-maintenance.sh](C:/Projects/api/scripts/deploy/recipe-catalog-maintenance.sh)массово классифицирует рецепты;
+выгружает подозрительные рецепты;
+собирает короткую сводку в summary.txt;
+
+обновил инструкцию в [README-ubuntu.md](C:/Projects/api/scripts/deploy/README-ubuntu.md), чтобы это запускалось одной командой через Termius.
+Теперь на Ubuntu можно сделать так:
+cd ~/nutrition-api-release
+ACCESS_TOKEN='сюда_admin_jwt' scripts/deploy/recipe-catalog-maintenance.sh
+На выходе появится папка с:
+classification.json
+suspicious-recipes.json
+summary.txt
+То есть у тебя уже есть быстрый рабочий цикл для чистки каталога перед показом и перед продом.
+Честно отмечу: сам bash-скрипт я не смог полноценно прогнать локально на Windows, потому что bash/wsl у тебя здесь зависают на уровне окружения, но backend до этого собран успешно, а сам скрипт сделан поверх уже существующих рабочих classify-recipe-catalog.sh и export-recipe-audit.sh.
+Следующий логичный шаг: сделать admin-уровень для массового исключения COMPONENT/INCOMPLETE рецептов из каталога без ручного редактирования каждой записи.
+
+README-ubuntu.mdДокумент · MDОткрыть предпросмотрОткрыть в
+
+Изменено 2 файла+96-1Просмотреть измененияОтменитьПроверить
+
+C:/Projects/api/scripts/deploy/recipe-catalog-maintenance.sh+77-1
+C:/Projects/api/scripts/deploy/README-ubuntu.md+19-0
+
+
+
+
+пятница 00:55
+
+
+
+
+
+
+продолжай
+
+
+
+пятница 00:56
+
+
+
+
+
+
+Работал на протяжении 3m 34s
+
+
+
+Продолжил и добил массовое управление качеством каталога.
+Теперь у API есть полноценный флаг hidden_from_catalog, и я связал его с аудитом рецептов:
+компонентные рецепты и рецепты с блокирующими проблемами можно массово скрывать из публичного каталога;
+обычная выдача рецептов теперь уважает этот флаг;
+audit-ответ теперь показывает:suggestedHiddenFromCatalog
+nutritionCalculationStatus
+nutritionNotes
+
+Что добавил:
+новый admin endpoint:POST /api/v1/recipes/admin/apply-catalog-visibility
+
+новый серверный скрипт:[apply-catalog-visibility.sh](C:/Projects/api/scripts/deploy/apply-catalog-visibility.sh)
+
+обновил общий maintenance-скрипт:[recipe-catalog-maintenance.sh](C:/Projects/api/scripts/deploy/recipe-catalog-maintenance.sh)
+
+обновил миграцию и README:[add_recipe_catalog_metadata.sql](C:/Projects/api/scripts/add_recipe_catalog_metadata.sql)
+[README-ubuntu.md](C:/Projects/api/scripts/deploy/README-ubuntu.md)
+
+Основные backend-файлы:
+[Recipe.java](C:/Projects/api/src/main/java/com/rest/api/entity/Recipe.java)
+[RecipeRequestDTO.java](C:/Projects/api/src/main/java/com/rest/api/dto/RecipeRequestDTO.java)
+[RecipeResponseDTO.java](C:/Projects/api/src/main/java/com/rest/api/dto/RecipeResponseDTO.java)
+[RecipeAuditResultDTO.java](C:/Projects/api/src/main/java/com/rest/api/dto/RecipeAuditResultDTO.java)
+[RecipeCatalogQualityService.java](C:/Projects/api/src/main/java/com/rest/api/service/RecipeCatalogQualityService.java)
+[RecipeRepository.java](C:/Projects/api/src/main/java/com/rest/api/repository/RecipeRepository.java)
+[RecipeService.java](C:/Projects/api/src/main/java/com/rest/api/service/RecipeService.java)
+[RecipeController.java](C:/Projects/api/src/main/java/com/rest/api/controller/RecipeController.java)
+Проверил:
+C:\Projects\api -> ./mvnw -DskipTests compile — BUILD SUCCESS
+Теперь на Ubuntu можно уже делать так:
+cd ~/nutrition-api-release
+ACCESS_TOKEN='сюда_admin_jwt' scripts/deploy/recipe-catalog-maintenance.sh
+Или только скрыть неподходящие рецепты:
+cd ~/nutrition-api-release
+ACCESS_TOKEN='сюда_admin_jwt' scripts/deploy/apply-catalog-visibility.sh
+Следующий сильный шаг — сделать прозрачный admin-отчет именно по КБЖУ-ошибкам: какие блюда INCOMPLETE, какие REQUIRES_SIDE_DISH, какие ESTIMATED, чтобы потом вынести это и в пользовательскую прозрачность расчета.
+
+README-ubuntu.mdДокумент · MDОткрыть предпросмотрОткрыть в
+
+Изменено 12 файлов+191-22Просмотреть измененияОтменитьПроверить
+
+C:/Projects/api/src/main/java/com/rest/api/entity/Recipe.java+6-0
+C:/Projects/api/src/main/java/com/rest/api/dto/RecipeRequestDTO.java+6-0
+C:/Projects/api/src/main/java/com/rest/api/dto/RecipeResponseDTO.java+6-0
+Показать еще 9 файлов
+
+
+
+пятница 01:00
+
+
+
+
+
+
+продолжай
+
+
+
+пятница 01:01
+
+
+
+
+
+
+Работал на протяжении 2m 3s
+
+
+
+Продолжил и добил отчетность по качеству КБЖУ.
+Что теперь есть:
+audit API умеет фильтровать по:nutritionCalculationStatus
+hiddenFromCatalog
+
+в ответе аудита теперь стабильно видны:nutritionCalculationStatus
+nutritionNotes
+suggestedHiddenFromCatalog
+
+обновил экспортный скрипт аудита:[export-recipe-audit.sh](C:/Projects/api/scripts/deploy/export-recipe-audit.sh)
+
+добавил отдельный быстрый скрипт именно для КБЖУ-аудита:[export-nutrition-audit.sh](C:/Projects/api/scripts/deploy/export-nutrition-audit.sh)
+
+улучшил maintenance summary:теперь там есть сводка по статусам COMPLETE / ESTIMATED / REQUIRES_SIDE_DISH / INCOMPLETE
+и по скрытию из каталога
+
+обновил инструкцию:[README-ubuntu.md](C:/Projects/api/scripts/deploy/README-ubuntu.md)
+
+Изменения в backend:
+[RecipeService.java](C:/Projects/api/src/main/java/com/rest/api/service/RecipeService.java)
+[RecipeController.java](C:/Projects/api/src/main/java/com/rest/api/controller/RecipeController.java)
+Проверил:
+C:\Projects\api -> ./mvnw -DskipTests compile — BUILD SUCCESS
+Теперь на Ubuntu можно быстро получить, например, только проблемные по КБЖУ рецепты:
+cd ~/nutrition-api-release
+ACCESS_TOKEN='сюда_admin_jwt' scripts/deploy/export-nutrition-audit.sh
+Или, например, блюда, где расчет идет без гарнира:
+ACCESS_TOKEN='сюда_admin_jwt' NUTRITION_STATUS=REQUIRES_SIDE_DISH scripts/deploy/export-nutrition-audit.sh
+Следующий сильный шаг уже почти напрашивается: вывести эти статусы и пояснения в Android на экран рецепта, чтобы пользователь видел прозрачность расчета прямо в приложении, а не только администратор на сервере.
+
+README-ubuntu.mdДокумент · MDОткрыть предпросмотрОткрыть в
+
+Изменено 6 файлов+92-10Просмотреть измененияОтменитьПроверить
+
+C:/Projects/api/src/main/java/com/rest/api/service/RecipeService.java+19-2
+C:/Projects/api/src/main/java/com/rest/api/controller/RecipeController.java+6-2
+C:/Projects/api/scripts/deploy/export-recipe-audit.sh+9-1
+Показать еще 3 файла
+
+
+
+пятница 01:03

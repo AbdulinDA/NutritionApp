@@ -1,0 +1,357 @@
+// DBML for dbdiagram.io
+// Source of truth: JPA entities in C:\Projects\api\src\main\java\com\rest\api\entity
+// Built from the current backend model, not from the older static ER picture.
+
+Project nutrition_app_db {
+  database_type: "PostgreSQL"
+  Note: '''
+  Актуальная ER-схема БД для NutritionApp / api.
+  Подходит для импорта в dbdiagram.io.
+  Часть колонок без явного @Column в JPA названа по стандартной Spring naming strategy
+  в snake_case: weightKg -> weight_kg, entryDate -> entry_date и т.д.
+  '''
+}
+
+Enum meal_type_enum {
+  BREAKFAST
+  LUNCH
+  DINNER
+  SNACK
+}
+
+Enum source_type_enum {
+  PRODUCT
+  RECIPE
+  CUSTOM
+}
+
+Table goal_types {
+  goal_type_id bigint [pk, increment]
+  goal_code varchar [not null, unique]
+  goal_name varchar [not null]
+  description text
+  calorie_coefficient double
+  recommendations text
+  min_duration_days int
+}
+
+Table users {
+  user_id bigint [pk, increment]
+  email varchar [not null, unique]
+  password_hash varchar [not null]
+  first_name varchar [not null]
+  last_name varchar [not null]
+  birth_date date [not null]
+  gender varchar
+  height_cm double
+  weight_kg double
+  activity_level varchar
+  registration_date timestamp
+  account_status varchar
+  avatar_url varchar
+  role varchar [not null, default: 'ROLE_USER']
+  target_weight_kg double
+  goal_type_id bigint
+  diet_type varchar
+  onboarding_completed boolean [default: false]
+  deleted boolean [default: false]
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp
+  created_by varchar
+  updated_by varchar
+}
+
+Table user_food_allergies {
+  user_id bigint [not null]
+  allergy varchar [not null]
+}
+
+Table user_favorite_cuisines {
+  user_id bigint [not null]
+  cuisine varchar [not null]
+}
+
+Table products {
+  product_id bigint [pk, increment]
+  product_name varchar [not null]
+  category varchar [not null]
+  subcategory varchar [not null]
+  calories_per_100g double
+  protein_per_100g double
+  fat_per_100g double
+  carbs_per_100g double
+  fiber_per_100g double
+  sugar_per_100g double
+  shelf_life_days int
+  seasonality varchar
+  is_common boolean [default: true]
+  barcode varchar [unique]
+  image_url varchar
+  deleted boolean [default: false]
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp
+  created_by varchar
+  updated_by varchar
+}
+
+Table recipes {
+  recipe_id bigint [pk, increment]
+  recipe_name varchar [not null]
+  description text
+  instruction text [not null]
+  prep_time_min int
+  cook_time_min int
+  difficult_level varchar
+  cuisine_type varchar
+  meal_type varchar
+  servings_count int
+  portion_weight_g double
+  total_calories double
+  total_protein double
+  total_fat double
+  total_carbs double
+  rating double [default: 0]
+  image_url varchar
+  deleted boolean [default: false]
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp
+  created_by varchar
+  updated_by varchar
+}
+
+Table measurement_units {
+  unit_id bigint [pk, increment]
+  unit_code varchar [not null, unique]
+  unit_name varchar [not null]
+  unit_type varchar
+  conversion_factor double
+  base_unit varchar
+  precision int [default: 2]
+  conversion_to_grams double
+  unit_symbol varchar
+}
+
+Table recipe_ingredients {
+  ingredient_id bigint [pk]
+  recipe_ingredient_id bigint
+  recipe_id bigint [not null]
+  product_id bigint [not null]
+  measurement_unit_id bigint
+  measurement_unit varchar [not null]
+  quantity double [not null]
+  calories double
+  protein double
+  fat double
+  carbs double
+  ingredient_order int [default: 0]
+  add_order int [default: 1]
+  processing_method varchar
+  notes text
+  is_required boolean [default: true]
+}
+
+Table pantry_items {
+  pantry_item_id bigint [pk, increment]
+  user_id bigint [not null]
+  product_id bigint [not null]
+  quantity double [not null]
+  unit_code varchar [not null]
+  quantity_grams double
+  expires_at date
+  source varchar [not null, default: 'MANUAL']
+  version bigint
+  created_at timestamp [not null]
+  updated_at timestamp
+  created_by varchar
+  updated_by varchar
+}
+
+Table food_diary_entries {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  product_id bigint
+  recipe_id bigint
+  meal_type varchar [not null]
+  source_type varchar
+  consumed_at timestamp
+  weight_grams double [not null]
+  entry_date date [not null]
+  calories double
+  protein double
+  fat double
+  carbs double
+  custom_name varchar
+  idempotency_key varchar(80)
+
+  Indexes {
+    (user_id, idempotency_key) [name: 'idx_food_diary_user_idempotency_key']
+  }
+}
+
+Table meal_plans {
+  meal_plan_id bigint [pk, increment]
+  user_id bigint [not null]
+  plan_date date [not null]
+  meal_type varchar
+  total_calories decimal(8,2)
+  total_protein decimal(8,2)
+  total_fat decimal(8,2)
+  total_carbs decimal(8,2)
+}
+
+Table plan_recipes {
+  plan_recipe_id bigint [pk, increment]
+  meal_plan_id bigint [not null]
+  recipe_id bigint [not null]
+  portion_size decimal(5,2) [default: 1.0]
+  meal_order int [default: 1]
+  recommendation_impression_id bigint
+  is_pinned boolean [not null, default: false]
+}
+
+Table weight_history {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  weight_kg double
+  measured_at date
+}
+
+Table water_entries {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  amount_ml int
+  entry_date date
+}
+
+Table refresh_tokens {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  token varchar [not null, unique]
+  expiry_date timestamp [not null]
+}
+
+Table notification_tokens {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  token varchar [not null, unique]
+  device_type varchar
+  device_id varchar
+}
+
+Table recommendation_impressions {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  recipe_id bigint [not null]
+  context_type varchar [not null]
+  meal_type varchar
+  rule_score double
+  ml_score double
+  rank_position int
+  experiment_variant varchar
+  feature_snapshot_json text
+  shown_at timestamp [not null]
+}
+
+Table recommendation_feedback {
+  id bigint [pk, increment]
+  impression_id bigint
+  user_id bigint [not null]
+  recipe_id bigint [not null]
+  event_type varchar [not null]
+  metadata_json text
+  event_at timestamp [not null]
+}
+
+Table analytics_events {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  event_type varchar [not null]
+  entity_id bigint
+  entity_type varchar
+  metadata text
+  event_timestamp timestamp [not null]
+}
+
+Table user_excluded_products {
+  user_id bigint [not null]
+  product_id bigint [not null]
+}
+
+Table user_favorite_products {
+  user_id bigint [not null]
+  product_id bigint [not null]
+}
+
+Table user_favorite_recipes {
+  user_id bigint [not null]
+  recipe_id bigint [not null]
+}
+
+Table user_excluded_recipes {
+  user_id bigint [not null]
+  recipe_id bigint [not null]
+}
+
+Table favorite_products {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  product_id bigint [not null]
+  created_at timestamp
+}
+
+Table favorite_recipes {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  recipe_id bigint [not null]
+  created_at timestamp
+}
+
+Ref: users.goal_type_id > goal_types.goal_type_id
+
+Ref: user_food_allergies.user_id > users.user_id
+Ref: user_favorite_cuisines.user_id > users.user_id
+
+Ref: recipe_ingredients.recipe_id > recipes.recipe_id
+Ref: recipe_ingredients.product_id > products.product_id
+Ref: recipe_ingredients.measurement_unit_id > measurement_units.unit_id
+
+Ref: pantry_items.user_id > users.user_id
+Ref: pantry_items.product_id > products.product_id
+
+Ref: food_diary_entries.user_id > users.user_id
+Ref: food_diary_entries.product_id > products.product_id
+Ref: food_diary_entries.recipe_id > recipes.recipe_id
+
+Ref: meal_plans.user_id > users.user_id
+Ref: plan_recipes.meal_plan_id > meal_plans.meal_plan_id
+Ref: plan_recipes.recipe_id > recipes.recipe_id
+Ref: plan_recipes.recommendation_impression_id > recommendation_impressions.id
+
+Ref: weight_history.user_id > users.user_id
+Ref: water_entries.user_id > users.user_id
+Ref: refresh_tokens.user_id > users.user_id
+Ref: notification_tokens.user_id > users.user_id
+
+Ref: recommendation_impressions.user_id > users.user_id
+Ref: recommendation_impressions.recipe_id > recipes.recipe_id
+Ref: recommendation_feedback.impression_id > recommendation_impressions.id
+Ref: recommendation_feedback.user_id > users.user_id
+Ref: recommendation_feedback.recipe_id > recipes.recipe_id
+Ref: analytics_events.user_id > users.user_id
+
+Ref: user_excluded_products.user_id > users.user_id
+Ref: user_excluded_products.product_id > products.product_id
+Ref: user_favorite_products.user_id > users.user_id
+Ref: user_favorite_products.product_id > products.product_id
+Ref: user_favorite_recipes.user_id > users.user_id
+Ref: user_favorite_recipes.recipe_id > recipes.recipe_id
+Ref: user_excluded_recipes.user_id > users.user_id
+Ref: user_excluded_recipes.recipe_id > recipes.recipe_id
+
+Ref: favorite_products.user_id > users.user_id
+Ref: favorite_products.product_id > products.product_id
+Ref: favorite_recipes.user_id > users.user_id
+Ref: favorite_recipes.recipe_id > recipes.recipe_id

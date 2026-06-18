@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">Nutrition AI</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_diary">Diario</string>
+    <string name="nav_products">Productos</string>
+    <string name="nav_recipes">Recetas</string>
+    <string name="nav_profile">Perfil</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Sobre ti</string>
+    <string name="onboarding_step_account">Crear cuenta</string>
+    <string name="onboarding_step_params">Tus parámetros</string>
+    <string name="onboarding_step_activity">Estilo de vida</string>
+    <string name="onboarding_step_goals">Tu objetivo</string>
+    <string name="onboarding_step_summary">¡Listo!</string>
+    <string name="onboarding_name_hint">¿Cómo te llamas?</string>
+    <string name="onboarding_email_hint">Email</string>
+    <string name="onboarding_pass_hint">Contraseña</string>
+    <string name="onboarding_gender">Género</string>
+    <string name="onboarding_male">Masculino</string>
+    <string name="onboarding_female">Femenino</string>
+    <string name="onboarding_height">Altura (cm)</string>
+    <string name="onboarding_weight">Peso actual (kg)</string>
+    <string name="onboarding_target_weight">Peso objetivo (kg)</string>
+    <string name="onboarding_continue">Continuar</string>
+    <string name="onboarding_finish">Empezar a usar</string>
+    <string name="onboarding_back">Volver</string>
+    <string name="onboarding_activity_label">Actividad</string>
+    <string name="onboarding_diet_label">Preferencias</string>
+    <string name="onboarding_summary_subtitle">Tu plan personal:</string>
+    <string name="onboarding_kcal_per_day">kcal al día</string>
+
+    <string name="goal_loss">Pérdida de peso</string>
+    <string name="goal_gain">Ganancia muscular</string>
+    <string name="goal_maintain">Mantenimiento</string>
+    <string name="plan_calculated_ai">Plan calculado por IA</string>
+
+    <string name="activity_sedentary">Sedentario</string>
+    <string name="activity_light">Actividad ligera</string>
+    <string name="activity_moderate">Actividad moderada</string>
+    <string name="activity_active">Actividad alta</string>
+    <string name="activity_very_active">Muy activo</string>
+    <string name="activity_extra_active">Extra activo</string>
+
+    <string name="diet_classic">Clásica</string>
+    <string name="diet_vegetarian">Vegetariana</string>
+    <string name="diet_keto">Keto</string>
+    <string name="diet_paleo">Paleo</string>
+
+    <string name="macros_protein">Proteína</string>
+    <string name="macros_fat">Grasa</string>
+    <string name="macros_carbs">Carbs</string>
+
+    <!-- Home -->
+    <string name="home_today">Hoy</string>
+    <string name="home_calories">Calorías</string>
+    <string name="home_water">Agua</string>
+    <string name="home_weight">Peso</string>
+    <string name="home_steps">Pasos</string>
+    <string name="home_meals">Comidas</string>
+    <string name="home_recommendations">Para ti</string>
+    <string name="home_ai_advice">Consejo IA</string>
+    <string name="home_data_protected">Datos Protegidos</string>
+    <string name="home_streak">Racha</string>
+    <string name="home_add_water">Añadir Agua</string>
+    <string name="home_update_weight">Actualizar Peso</string>
+
+    <!-- Diary & Search -->
+    <string name="diary_title">Diario</string>
+    <string name="diary_add_food">Añadir</string>
+    <string name="diary_no_entries">Sin registros</string>
+    <string name="search_products_title">Buscar</string>
+    <string name="search_hint">Producto…</string>
+    <string name="search_barcode_hint">Escanear</string>
+    <string name="search_frequent">Frecuentes</string>
+
+    <!-- Recipes -->
+    <string name="recipes_title">Recetas</string>
+    <string name="recipes_fridge_title">De tu nevera</string>
+    <string name="recipes_generate_plan">Crear Plan</string>
+    <string name="meal_plan_title">Plan</string>
+    <string name="shopping_list_title">Lista</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">Analítica</string>
+    <string name="analytics_health_index">Salud</string>
+
+    <!-- Profile -->
+    <string name="profile_edit">Editar</string>
+    <string name="profile_theme">Tema</string>
+    <string name="profile_logout">Cerrar sesión</string>
+
+    <!-- General -->
+    <string name="loading">Cargando…</string>
+    <string name="error_unknown">Error</string>
+    <string name="retry">Reintentar</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">OK</string>
+    <string name="done">¡Hecho!</string>
+</resources>

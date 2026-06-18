@@ -1,0 +1,20 @@
+flowchart TD
+    A[Авторизация]
+
+    A -->|Вход| B[Главный экран]
+    A -->|Регистрация| C[Онбординг]
+    C -->|Подтверждение почты| A
+
+    B --> D1[Главная]
+    B --> D2[Дневник питания]
+    B --> D3[Продукты]
+    B --> D4[Рецепты]
+    B --> D5[Профиль]
+
+    classDef core fill:#e8f1fb,stroke:#356a9a,stroke-width:1px,color:#16324f;
+    classDef tab fill:#eaf7ea,stroke:#4f8a4f,stroke-width:1px,color:#1f4f1f;
+    classDef auth fill:#f8f4e8,stroke:#9a7b35,stroke-width:1px,color:#4d3a16;
+
+    class A,C auth;
+    class B core;
+    class D1,D2,D3,D4,D5 tab;

@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Ernährung AI</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_diary">Tagebuch</string>
+    <string name="nav_products">Produkte</string>
+    <string name="nav_recipes">Rezepte</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Über dich</string>
+    <string name="onboarding_step_account">Konto erstellen</string>
+    <string name="onboarding_step_params">Deine Parameter</string>
+    <string name="onboarding_step_activity">Lebensstil</string>
+    <string name="onboarding_step_goals">Dein Ziel</string>
+    <string name="onboarding_step_summary">Bereit!</string>
+    <string name="onboarding_name_hint">Wie heißt du?</string>
+    <string name="onboarding_email_hint">E-Mail</string>
+    <string name="onboarding_pass_hint">Passwort</string>
+    <string name="onboarding_gender">Geschlecht</string>
+    <string name="onboarding_male">Männlich</string>
+    <string name="onboarding_female">Weiblich</string>
+    <string name="onboarding_height">Größe (cm)</string>
+    <string name="onboarding_weight">Gewicht (kg)</string>
+    <string name="onboarding_target_weight">Zielgewicht (kg)</string>
+    <string name="onboarding_continue">Weiter</string>
+    <string name="onboarding_finish">Starten</string>
+    <string name="onboarding_back">Zurück</string>
+    <string name="onboarding_kcal_per_day">kcal pro Tag</string>
+
+    <string name="goal_loss">Gewichtsabnahme</string>
+    <string name="goal_gain">Muskelaufbau</string>
+    <string name="goal_maintain">Gewicht halten</string>
+    <string name="plan_calculated_ai">Vom KI berechneter Plan</string>
+
+    <!-- Units -->
+    <string name="unit_g">g</string>
+    <string name="unit_kg">kg</string>
+    <string name="unit_kcal">kcal</string>
+    <string name="unit_ml">ml</string>
+
+    <!-- Home -->
+    <string name="home_today">Heute</string>
+    <string name="home_calories">Kalorien</string>
+    <string name="home_protein">Eiweiß</string>
+    <string name="home_fat">Fett</string>
+    <string name="home_carbs">Kohlenhydrate</string>
+    <string name="home_water">Wasser</string>
+    <string name="home_weight">Gewicht</string>
+    <string name="home_meals">Mahlzeiten</string>
+    <string name="home_ai_advice">KI-Tipp</string>
+
+    <!-- Diary -->
+    <string name="diary_title">Tagebuch</string>
+    <string name="diary_add_food">Hinzufügen</string>
+    <string name="diary_no_entries">Keine Einträge</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">Analyse</string>
+    <string name="analytics_health_index">Gesundheitsindex</string>
+
+    <!-- General -->
+    <string name="loading">Laden…</string>
+    <string name="error_unknown">Fehler aufgetreten</string>
+    <string name="retry">Wiederholen</string>
+    <string name="done">Fertig!</string>
+</resources>

@@ -1,0 +1,52 @@
+flowchart TD
+    A[Авторизация]
+
+    A -->|Вход| B[Главный экран]
+    A -->|Регистрация| C[Онбординг]
+    C -->|Подтверждение почты| A
+
+    B --> D1[Главная]
+    B --> D2[Дневник питания]
+    B --> D3[Продукты]
+    B --> D4[Рецепты]
+    B --> D5[Профиль]
+
+    D1 --> E1[Избранное]
+    D1 --> E2[Холодильник]
+    D1 --> E3[Аналитика]
+    D1 --> E4[Карточка рецепта]
+
+    D2 --> F1[Добавление еды]
+
+    D3 --> G1[Карточка продукта]
+
+    D4 --> H1[Карточка рецепта]
+    D4 --> H2[Генерация плана]
+
+    D5 --> I1[План питания]
+    D5 --> I2[Список покупок]
+    D5 --> I3[Редактирование профиля]
+    D5 --> I4[Пищевые предпочтения]
+    D5 --> I5[Настройки]
+    D5 --> I6[Избранное]
+    D5 --> I7[Холодильник]
+
+    E2 --> H3[Рецепты из холодильника]
+    I7 --> H3
+
+    H2 --> I1
+    I1 --> H1
+    I1 --> I2
+
+    H1 --> F1
+    H1 --> I1
+
+    classDef core fill:#e8f1fb,stroke:#356a9a,stroke-width:1px,color:#16324f;
+    classDef tab fill:#eaf7ea,stroke:#4f8a4f,stroke-width:1px,color:#1f4f1f;
+    classDef support fill:#f8f4e8,stroke:#9a7b35,stroke-width:1px,color:#4d3a16;
+    classDef auth fill:#f8f4e8,stroke:#9a7b35,stroke-width:1px,color:#4d3a16;
+
+    class A,C auth;
+    class B core;
+    class D1,D2,D3,D4,D5 tab;
+    class E1,E2,E3,E4,F1,G1,H1,H2,H3,I1,I2,I3,I4,I5,I6,I7 support;

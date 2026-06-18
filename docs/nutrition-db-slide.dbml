@@ -1,0 +1,143 @@
+// Compact DBML for slides / dbdiagram.io
+// Only the core entities of the nutrition planning system
+
+Project nutrition_app_db_slide {
+  database_type: "PostgreSQL"
+  Note: '''
+  Упрощенная ER-схема для слайда.
+  Оставлены только ключевые сущности, которые показывают ядро системы:
+  пользователь, продукты, рецепты, pantry, дневник, план питания и ML-рекомендации.
+  '''
+}
+
+Table goal_types {
+  goal_type_id bigint [pk, increment]
+  goal_code varchar [not null, unique]
+  goal_name varchar [not null]
+  calorie_coefficient double
+}
+
+Table users {
+  user_id bigint [pk, increment]
+  email varchar [not null, unique]
+  first_name varchar [not null]
+  birth_date date [not null]
+  gender varchar
+  height_cm double
+  weight_kg double
+  activity_level varchar
+  target_weight_kg double
+  diet_type varchar
+  goal_type_id bigint
+}
+
+Table products {
+  product_id bigint [pk, increment]
+  product_name varchar [not null]
+  category varchar [not null]
+  subcategory varchar [not null]
+  calories_per_100g double
+  protein_per_100g double
+  fat_per_100g double
+  carbs_per_100g double
+  barcode varchar [unique]
+}
+
+Table recipes {
+  recipe_id bigint [pk, increment]
+  recipe_name varchar [not null]
+  meal_type varchar
+  cuisine_type varchar
+  cook_time_min int
+  total_calories double
+  total_protein double
+  total_fat double
+  total_carbs double
+  rating double
+}
+
+Table recipe_ingredients {
+  ingredient_id bigint [pk]
+  recipe_id bigint [not null]
+  product_id bigint [not null]
+  quantity double [not null]
+  measurement_unit varchar [not null]
+  is_required boolean
+}
+
+Table pantry_items {
+  pantry_item_id bigint [pk, increment]
+  user_id bigint [not null]
+  product_id bigint [not null]
+  quantity double [not null]
+  unit_code varchar [not null]
+  expires_at date
+}
+
+Table food_diary_entries {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  product_id bigint
+  recipe_id bigint
+  meal_type varchar [not null]
+  source_type varchar
+  entry_date date [not null]
+  weight_grams double [not null]
+  calories double
+  protein double
+  fat double
+  carbs double
+}
+
+Table meal_plans {
+  meal_plan_id bigint [pk, increment]
+  user_id bigint [not null]
+  plan_date date [not null]
+  meal_type varchar
+  total_calories decimal(8,2)
+  total_protein decimal(8,2)
+  total_fat decimal(8,2)
+  total_carbs decimal(8,2)
+}
+
+Table plan_recipes {
+  plan_recipe_id bigint [pk, increment]
+  meal_plan_id bigint [not null]
+  recipe_id bigint [not null]
+  meal_order int
+  portion_size decimal(5,2)
+  recommendation_impression_id bigint
+  is_pinned boolean [default: false]
+}
+
+Table recommendation_impressions {
+  id bigint [pk, increment]
+  user_id bigint [not null]
+  recipe_id bigint [not null]
+  context_type varchar [not null]
+  meal_type varchar
+  rule_score double
+  ml_score double
+  rank_position int
+  experiment_variant varchar
+}
+
+Ref: users.goal_type_id > goal_types.goal_type_id
+
+Ref: recipe_ingredients.recipe_id > recipes.recipe_id
+Ref: recipe_ingredients.product_id > products.product_id
+
+Ref: pantry_items.user_id > users.user_id
+Ref: pantry_items.product_id > products.product_id
+
+Ref: food_diary_entries.user_id > users.user_id
+Ref: food_diary_entries.product_id > products.product_id
+Ref: food_diary_entries.recipe_id > recipes.recipe_id
+
+Ref: meal_plans.user_id > users.user_id
+Ref: plan_recipes.meal_plan_id > meal_plans.meal_plan_id
+Ref: plan_recipes.recipe_id > recipes.recipe_id
+Ref: plan_recipes.recommendation_impression_id > recommendation_impressions.id
+
+Ref: recommendation_impressions.user_id > users.user_id
+Ref: recommendation_impressions.recipe_id > recipes.recipe_id

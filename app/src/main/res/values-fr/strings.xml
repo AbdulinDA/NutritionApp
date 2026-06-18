@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">IA Nutrition</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Accueil</string>
+    <string name="nav_diary">Journal</string>
+    <string name="nav_products">Produits</string>
+    <string name="nav_recipes">Recettes</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">À propos de vous</string>
+    <string name="onboarding_step_account">Créer un compte</string>
+    <string name="onboarding_step_params">Vos paramètres</string>
+    <string name="onboarding_step_activity">Style de vie</string>
+    <string name="onboarding_step_goals">Votre objectif</string>
+    <string name="onboarding_step_summary">Prêt !</string>
+
+    <string name="onboarding_name_hint">Quel est votre nom ?</string>
+    <string name="onboarding_email_hint">Email</string>
+    <string name="onboarding_pass_hint">Mot de passe</string>
+    <string name="onboarding_gender">Genre</string>
+    <string name="onboarding_male">Homme</string>
+    <string name="onboarding_female">Femme</string>
+    <string name="onboarding_height">Taille (cm)</string>
+    <string name="onboarding_weight">Poids actuel (kg)</string>
+    <string name="onboarding_target_weight">Poids cible (kg)</string>
+
+    <string name="onboarding_continue">Continuer</string>
+    <string name="onboarding_finish">Commencer</string>
+    <string name="onboarding_back">Retour</string>
+
+    <string name="goal_loss">Perte de poids</string>
+    <string name="goal_gain">Prise de masse</string>
+    <string name="goal_maintain">Maintien du poids</string>
+    <string name="plan_calculated_ai">Plan calculé par l\'IA</string>
+
+    <string name="activity_sedentary">Sédentaire</string>
+    <string name="activity_light">Activité légère</string>
+    <string name="activity_moderate">Activité modérée</string>
+    <string name="activity_active">Activité élevée</string>
+
+    <string name="diet_classic">Classique</string>
+    <string name="diet_vegetarian">Végétarien</string>
+    <string name="diet_keto">Céto</string>
+</resources>

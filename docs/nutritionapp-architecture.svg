@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <style>
+      .title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #153243; }
+      .subtitle { font: 500 18px 'Segoe UI', Arial, sans-serif; fill: #48616f; }
+      .layer-title { font: 700 24px 'Segoe UI', Arial, sans-serif; fill: #153243; }
+      .label { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #153243; }
+      .text { font: 500 16px 'Segoe UI', Arial, sans-serif; fill: #29434e; }
+      .small { font: 500 14px 'Segoe UI', Arial, sans-serif; fill: #48616f; }
+      .box { rx: 22; ry: 22; stroke-width: 2; }
+      .arrow { stroke: #355c7d; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dashed { stroke-dasharray: 8 8; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#355c7d"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="980" fill="#f8fbfd"/>
+  <text x="800" y="58" text-anchor="middle" class="title">Схема архитектуры проекта NutritionApp</text>
+  <text x="800" y="90" text-anchor="middle" class="subtitle">Android-приложение на Kotlin, Jetpack Compose, Hilt, Repository Pattern</text>
+
+  <rect x="40" y="130" width="1520" height="170" fill="#eef7fb" stroke="#b8d6e5" class="box"/>
+  <text x="70" y="170" class="layer-title">1. Presentation Layer</text>
+
+  <rect x="70" y="195" width="260" height="80" fill="#ffffff" stroke="#7cb7d6" class="box"/>
+  <text x="200" y="225" text-anchor="middle" class="label">Экраны / Compose UI</text>
+  <text x="200" y="248" text-anchor="middle" class="small">Home, Profile, EditProfile</text>
+  <text x="200" y="268" text-anchor="middle" class="small">RecipeSearch, RecipeDetail, Diary</text>
+
+  <rect x="380" y="195" width="250" height="80" fill="#ffffff" stroke="#7cb7d6" class="box"/>
+  <text x="505" y="225" text-anchor="middle" class="label">Navigation</text>
+  <text x="505" y="248" text-anchor="middle" class="small">Маршруты экранов</text>
+  <text x="505" y="268" text-anchor="middle" class="small">Переходы между сценариями</text>
+
+  <rect x="680" y="195" width="260" height="80" fill="#ffffff" stroke="#7cb7d6" class="box"/>
+  <text x="810" y="225" text-anchor="middle" class="label">ViewModel</text>
+  <text x="810" y="248" text-anchor="middle" class="small">HomeViewModel, ProfileViewModel</text>
+  <text x="810" y="268" text-anchor="middle" class="small">EditProfileViewModel, RecipeSearchViewModel</text>
+
+  <rect x="990" y="195" width="250" height="80" fill="#ffffff" stroke="#7cb7d6" class="box"/>
+  <text x="1115" y="225" text-anchor="middle" class="label">UI State</text>
+  <text x="1115" y="248" text-anchor="middle" class="small">StateFlow / Compose State</text>
+  <text x="1115" y="268" text-anchor="middle" class="small">loading / success / error</text>
+
+  <rect x="1290" y="195" width="240" height="80" fill="#ffffff" stroke="#7cb7d6" class="box"/>
+  <text x="1410" y="225" text-anchor="middle" class="label">User Actions</text>
+  <text x="1410" y="248" text-anchor="middle" class="small">Ввод данных, поиск, фильтры</text>
+  <text x="1410" y="268" text-anchor="middle" class="small">Навигация и сохранение</text>
+
+  <rect x="40" y="340" width="1520" height="150" fill="#f2f8ee" stroke="#c7dcb6" class="box"/>
+  <text x="70" y="380" class="layer-title">2. Domain Layer</text>
+
+  <rect x="160" y="405" width="300" height="58" fill="#ffffff" stroke="#95c27d" class="box"/>
+  <text x="310" y="440" text-anchor="middle" class="label">Domain Model</text>
+  <text x="310" y="458" text-anchor="middle" class="small">UserModel, RecipeModel, HomeModel, FoodDiaryEntry</text>
+
+  <rect x="560" y="405" width="260" height="58" fill="#ffffff" stroke="#95c27d" class="box"/>
+  <text x="690" y="440" text-anchor="middle" class="label">Use Case</text>
+  <text x="690" y="458" text-anchor="middle" class="small">GetFridgeRecipesUseCase и сценарии домена</text>
+
+  <rect x="920" y="405" width="320" height="58" fill="#ffffff" stroke="#95c27d" class="box"/>
+  <text x="1080" y="440" text-anchor="middle" class="label">Repository Interfaces</text>
+  <text x="1080" y="458" text-anchor="middle" class="small">UserRepository, RecipeRepository, HomeRepository и др.</text>
+
+  <rect x="40" y="530" width="1520" height="240" fill="#fff7ec" stroke="#e3c79a" class="box"/>
+  <text x="70" y="570" class="layer-title">3. Data Layer</text>
+
+  <rect x="80" y="600" width="250" height="140" fill="#ffffff" stroke="#d9a85b" class="box"/>
+  <text x="205" y="632" text-anchor="middle" class="label">Repository Impl</text>
+  <text x="205" y="658" text-anchor="middle" class="text">UserRepositoryImpl</text>
+  <text x="205" y="683" text-anchor="middle" class="text">RecipeRepositoryImpl</text>
+  <text x="205" y="708" text-anchor="middle" class="text">HomeRepositoryImpl</text>
+  <text x="205" y="728" text-anchor="middle" class="small">FoodDiary / Product / MealPlan и др.</text>
+
+  <rect x="390" y="600" width="260" height="140" fill="#ffffff" stroke="#d9a85b" class="box"/>
+  <text x="520" y="632" text-anchor="middle" class="label">Mapper</text>
+  <text x="520" y="658" text-anchor="middle" class="text">RecipeMapper</text>
+  <text x="520" y="683" text-anchor="middle" class="text">HomeMapper</text>
+  <text x="520" y="708" text-anchor="middle" class="text">FoodDiaryMapper</text>
+  <text x="520" y="728" text-anchor="middle" class="small">DTO → Domain Model</text>
+
+  <rect x="710" y="600" width="250" height="140" fill="#ffffff" stroke="#d9a85b" class="box"/>
+  <text x="835" y="632" text-anchor="middle" class="label">Remote Source</text>
+  <text x="835" y="658" text-anchor="middle" class="text">NutritionApi (Retrofit)</text>
+  <text x="835" y="683" text-anchor="middle" class="text">AuthInterceptor</text>
+  <text x="835" y="708" text-anchor="middle" class="text">safeApiCall / ApiResponse</text>
+  <text x="835" y="728" text-anchor="middle" class="small">HTTP-запросы к backend</text>
+
+  <rect x="1020" y="600" width="250" height="140" fill="#ffffff" stroke="#d9a85b" class="box"/>
+  <text x="1145" y="632" text-anchor="middle" class="label">Local Source</text>
+  <text x="1145" y="658" text-anchor="middle" class="text">Room / DAO / Entity</text>
+  <text x="1145" y="683" text-anchor="middle" class="text">Local cache / prefs</text>
+  <text x="1145" y="708" text-anchor="middle" class="text">offline / intermediate state</text>
+  <text x="1145" y="728" text-anchor="middle" class="small">data/local/*</text>
+
+  <rect x="1330" y="600" width="190" height="140" fill="#ffffff" stroke="#d9a85b" class="box"/>
+  <text x="1425" y="632" text-anchor="middle" class="label">DTO</text>
+  <text x="1425" y="658" text-anchor="middle" class="text">auth</text>
+  <text x="1425" y="683" text-anchor="middle" class="text">user / home / recipe</text>
+  <text x="1425" y="708" text-anchor="middle" class="text">diary / mealplan</text>
+  <text x="1425" y="728" text-anchor="middle" class="small">data/dto/*</text>
+
+  <rect x="40" y="810" width="1520" height="130" fill="#f5f0fb" stroke="#ccb8e5" class="box"/>
+  <text x="70" y="850" class="layer-title">4. Infrastructure / Core</text>
+
+  <rect x="120" y="865" width="260" height="48" fill="#ffffff" stroke="#9f85c8" class="box"/>
+  <text x="250" y="895" text-anchor="middle" class="label">Hilt DI</text>
+  <text x="250" y="913" text-anchor="middle" class="small">core/di, @HiltAndroidApp, @HiltViewModel</text>
+
+  <rect x="450" y="865" width="250" height="48" fill="#ffffff" stroke="#9f85c8" class="box"/>
+  <text x="575" y="895" text-anchor="middle" class="label">Core Utils</text>
+  <text x="575" y="913" text-anchor="middle" class="small">Resource, constants, helpers</text>
+
+  <rect x="770" y="865" width="250" height="48" fill="#ffffff" stroke="#9f85c8" class="box"/>
+  <text x="895" y="895" text-anchor="middle" class="label">Workers</text>
+  <text x="895" y="913" text-anchor="middle" class="small">background sync / WorkManager</text>
+
+  <rect x="1090" y="865" width="380" height="48" fill="#ffffff" stroke="#9f85c8" class="box"/>
+  <text x="1280" y="895" text-anchor="middle" class="label">Backend API / External Services</text>
+  <text x="1280" y="913" text-anchor="middle" class="small">профиль, дневник, рецепты, рекомендации, meal plan</text>
+
+  <path d="M 1410 275 L 1410 320 L 810 320 L 810 195" class="arrow"/>
+  <path d="M 1115 275 L 1115 320 L 810 320 L 810 275" class="arrow"/>
+  <path d="M 810 275 L 810 405" class="arrow"/>
+  <path d="M 690 463 L 690 520 L 205 520 L 205 600" class="arrow"/>
+  <path d="M 1080 463 L 1080 520 L 205 520 L 205 600" class="arrow"/>
+  <path d="M 205 670 L 390 670" class="arrow"/>
+  <path d="M 650 670 L 710 670" class="arrow"/>
+  <path d="M 960 670 L 1020 670" class="arrow dashed"/>
+  <path d="M 960 645 L 1330 645" class="arrow dashed"/>
+  <path d="M 835 740 L 835 840 L 1280 840 L 1280 865" class="arrow"/>
+  <path d="M 250 865 L 250 790 L 205 790 L 205 740" class="arrow dashed"/>
+  <path d="M 575 865 L 575 790 L 520 790 L 520 740" class="arrow dashed"/>
+  <path d="M 895 865 L 895 790 L 1145 790 L 1145 740" class="arrow dashed"/>
+  <path d="M 520 600 L 520 520 L 1080 520 L 1080 463" class="arrow dashed"/>
+  <path d="M 310 463 L 310 520 L 810 520 L 810 275" class="arrow dashed"/>
+
+  <text x="77" y="962" class="small">Схема построена по фактической структуре пакетов проекта: core / data / domain / presentation.</text>
+</svg>

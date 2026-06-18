@@ -1,0 +1,16 @@
+flowchart TD
+    A[Главная]
+
+    A --> B[Избранное]
+    A --> C[Холодильник]
+    A --> D[Аналитика]
+    A --> E[Карточка рецепта]
+
+    C --> F[Рецепты из холодильника]
+    F --> E
+
+    classDef main fill:#eaf7ea,stroke:#4f8a4f,stroke-width:1px,color:#1f4f1f;
+    classDef support fill:#f8f4e8,stroke:#9a7b35,stroke-width:1px,color:#4d3a16;
+
+    class A main;
+    class B,C,D,E,F support;

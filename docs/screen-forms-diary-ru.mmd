@@ -1,0 +1,14 @@
+flowchart TD
+    A[Дневник питания]
+
+    A --> B[Добавление еды]
+    B --> C[Поиск продукта]
+    B --> D[Поиск рецепта]
+    C --> E[Сканер штрихкода]
+    C --> F[Распознавание еды]
+
+    classDef main fill:#eaf7ea,stroke:#4f8a4f,stroke-width:1px,color:#1f4f1f;
+    classDef support fill:#f8f4e8,stroke:#9a7b35,stroke-width:1px,color:#4d3a16;
+
+    class A main;
+    class B,C,D,E,F support;

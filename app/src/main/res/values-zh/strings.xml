@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">营养 AI</string>
+
+    <!-- 导航 -->
+    <string name="nav_home">首页</string>
+    <string name="nav_diary">日记</string>
+    <string name="nav_products">产品</string>
+    <string name="nav_recipes">食谱</string>
+    <string name="nav_profile">个人资料</string>
+
+    <!-- 入门引导 -->
+    <string name="onboarding_title">关于您</string>
+    <string name="onboarding_step_account">创建账户</string>
+    <string name="onboarding_step_params">您的参数</string>
+    <string name="onboarding_step_activity">生活方式</string>
+    <string name="onboarding_step_goals">您的目标</string>
+    <string name="onboarding_step_summary">准备就绪！</string>
+    <string name="onboarding_name_hint">您叫什么名字？</string>
+    <string name="onboarding_email_hint">电子邮件</string>
+    <string name="onboarding_pass_hint">密码</string>
+    <string name="onboarding_gender">性别</string>
+    <string name="onboarding_male">男</string>
+    <string name="onboarding_female">女</string>
+    <string name="onboarding_height">身高 (厘米)</string>
+    <string name="onboarding_weight">当前体重 (公斤)</string>
+    <string name="onboarding_target_weight">目标体重 (公斤)</string>
+    <string name="onboarding_continue">继续</string>
+    <string name="onboarding_finish">开始使用</string>
+    <string name="onboarding_back">返回</string>
+
+    <string name="goal_loss">减肥</string>
+    <string name="goal_gain">增肌</string>
+    <string name="goal_maintain">维持体重</string>
+    <string name="plan_calculated_ai">人工智能计算的计划</string>
+
+    <!-- 单位 -->
+    <string name="unit_g">克</string>
+    <string name="unit_kg">公斤</string>
+    <string name="unit_kcal">千卡</string>
+    <string name="unit_ml">毫升</string>
+
+    <!-- 主屏幕 -->
+    <string name="home_today">今天</string>
+    <string name="home_calories">卡路里</string>
+    <string name="home_protein">蛋白质</string>
+    <string name="home_fat">脂肪</string>
+    <string name="home_carbs">碳水化合物</string>
+    <string name="home_water">饮水</string>
+    <string name="home_weight">体重</string>
+    <string name="home_steps">步数</string>
+    <string name="home_activity">活动</string>
+    <string name="home_meals">用餐</string>
+
+    <!-- 登录 -->
+    <string name="login_welcome">欢迎回来！</string>
+    <string name="login_subtitle">登录以继续您的旅程</string>
+
+    <!-- 分析 -->
+    <string name="analytics_title">进度分析</string>
+    <string name="analytics_health_index">健康指数</string>
+
+    <!-- 个人资料 -->
+    <string name="profile_theme">应用主题</string>
+    <string name="profile_logout">登出</string>
+
+    <!-- 通用 -->
+    <string name="loading">加载中…</string>
+    <string name="error_unknown">发生错误</string>
+    <string name="retry">重试</string>
+    <string name="done">完成！</string>
+</resources>

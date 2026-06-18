@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GigaCodeAgentSettings">
+    <option name="autoApproveEdits" value="true" />
+    <option name="autoApprovedCommands">
+      <list>
+        <Execute>
+          <option name="pattern" value="$PROJECT_DIR$/../*" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp &amp;&amp; ./gradlew assembleDebug" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; .\gradlew.bat assembleDebug" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api/build; tar -xzf nutrition-api-release.tar.gz" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api/build/nutrition-api-release; mkdir extracted; cd extracted; jar -xf ../api.jar" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api/build/nutrition-api-release/extracted; java -jar ../api.jar" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api/build/nutrition-api-release/extracted; Expand-Archive -Path ../api.jar -DestinationPath . -Force" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api/build/nutrition-api-release/extracted; ren ../api.jar api.zip; Expand-Archive -Path api.zip -DestinationPath . -Force" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; .\gradlew.bat assembleDebug --rerun-tasks" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; Test-Path &quot;app/build/outputs/apk/debug/app-debug.apk&quot;" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; (Get-Item &quot;app/build/outputs/apk/debug/app-debug.apk&quot;).Length" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; .\gradlew.bat assembleDebug --quiet" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; .\gradlew.bat clean assembleDebug" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; dir app\build\outputs\apk 2&gt;&amp;1" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; dir app\build\outputs\apk\debug 2&gt;&amp;1" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp &amp;&amp; ./gradlew assembleDebug 2&gt;&amp;1 | head -100" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; ./gradlew assembleDebug 2&gt;&amp;1 | Select-Object -First 100" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; .\gradlew.bat assembleDebug 2&gt;&amp;1 | Select-Object -Last 20" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; .\gradlew.bat assembleDebug 2&gt;&amp;1 | Select-Object -Last 30" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; Select-String -Path &quot;app\src\main\res\values\strings.xml&quot; -Pattern &quot;recipe_ingredients_title&quot; -Context 0,0" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api; Select-String -Path &quot;api_documentation.txt&quot; -Pattern &quot;recipe&quot; -Context 0,2" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api; Select-String -Path &quot;api_documentation.txt&quot; -Pattern &quot;/recipes/.*&quot; -Context 0,10" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api; Select-String -Path &quot;api_documentation.txt&quot; -Pattern &quot;GET /recipes/[0-9]&quot; -Context 0,20" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api; Select-String -Path &quot;api_documentation.txt&quot; -Pattern &quot;recipes/{id}&quot; -Context 0,20" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/api; Select-String -Path &quot;api_documentation.txt&quot; -Pattern &quot;recipeId&quot; -Context 0,5" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;recipe_ingredient&quot; C:\Projects\NutritionApp\app\src\main\res\values\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp &amp;&amp; git status" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:/Projects/NutritionApp; git status" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;formatIngredientAmount&quot; C:\Projects\NutritionApp\app\src\main\java\com\abdulin\nutritionapp\presentation\recipe\RecipeDetailScreen.kt" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;private fun formatIngredientAmount&quot; C:\Projects\NutritionApp\app\src\main\java\com\abdulin\nutritionapp\presentation\recipe\*.kt" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd C:\Projects\NutritionApp; .\gradlew.bat assembleDebug" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;recipe_ingredients&quot; C:\Projects\NutritionApp\app\src\main\res\values\strings.xml | findstr /V &quot;recipe_ingredients_title&quot;" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;recipe_ingredient&quot; C:\Projects\NutritionApp\app\src\main\res\values-ru\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;recipe_ingredient&quot; C:\Projects\NutritionApp\app\src\main\res\values-ru\strings.xml /C:&quot;recipe_instruction&quot;" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /N /C:&quot;recipe_ingredients&quot; C:\Projects\NutritionApp\app\src\main\res\values-ru\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /N /C:&quot;recipe_ingredient_breakdown&quot; C:\Projects\NutritionApp\app\src\main\res\values\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /N /C:&quot;recipe_ingredient_breakdown&quot; C:\Projects\NutritionApp\app\src\main\res\values-ru\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;recipe_ingredient&quot; C:\Projects\NutritionApp\app\src\main\res\values\strings.xml C:\Projects\NutritionApp\app\src\main\res\values-ru\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /N /C:&quot;recipe_ingredients&quot; C:\Projects\NutritionApp\app\src\main\res\values\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;recipe_ingredients&quot; C:\Projects\NutritionApp\app\src\main\res\values-ru\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="findstr /C:&quot;recipe_ingredients&quot; C:\Projects\NutritionApp\app\src\main\res\values\strings.xml" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="ls *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="cd *" />
+        </Execute>
+        <Execute>
+          <option name="pattern" value="*" />
+        </Execute>
+      </list>
+    </option>
+    <option name="autoApprovedReads">
+      <list>
+        <Read>
+          <option name="pattern" value="$PROJECT_DIR$/../*" />
+        </Read>
+        <Read>
+          <option name="pattern" value="$PROJECT_DIR$/../api/*" />
+        </Read>
+        <Read>
+          <option name="pattern" value="findstr *" />
+        </Read>
+      </list>
+    </option>
+  </component>
+</project>
